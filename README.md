@@ -1,6 +1,6 @@
 # Ansible Role: Sublime Text (Drupal Configurator)
 
-[![Build Status](https://travis-ci.org/fubarhouse/fubarhouse.sublime-drupal.svg?branch=master)](https://travis-ci.org/fubarhouse/fubarhouse.sublime-drupal)
+[![Build Status](https://travis-ci.org/fubarhouse/ansible-role-sublime-drupal.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-sublime-drupal)
 
 Configures Sublime using the [recommended Drupal standard](https://www.drupal.org/docs/develop/development-tools/configuring-sublime-text) on macOS.
 

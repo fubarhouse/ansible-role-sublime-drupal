@@ -57,10 +57,6 @@
       - Highlighter
       - MacTerminal
 
-- name: "Include OSX tasks"
-  include: tasks-MacOSX.yml
-  when: "{{ ansible_distribution }} == 'MacOSX'"
-
 - name: Sublime | Install Soda
   git:
     repo: "https://github.com/buymeasoda/soda-theme.git"

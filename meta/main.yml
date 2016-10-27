@@ -1,7 +1,7 @@
 galaxy_info:
   author: Karl Hepworth
   description: Configures Sublime Text the Drupal-Recommended way.
-  issue_tracker_url: https://github.com/fubarhouse/fubarhouse.sublime-drupal/issues
+  issue_tracker_url: https://github.com/fubarhouse/ansible-role-sublime-drupal/issues
   license: MIT
   min_ansible_version: 2.1
   platforms:
