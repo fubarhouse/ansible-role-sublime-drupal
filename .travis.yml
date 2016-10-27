@@ -5,13 +5,10 @@ os: osx
 # Use the new container infrastructure
 sudo: false
 
-# Install ansible
-addons:
-  apt:
-    packages:
-    - python-pip
-
 install:
+  # Install pip
+  - sudo easy_install pip
+
   # Install ansible
   - pip install ansible
 
