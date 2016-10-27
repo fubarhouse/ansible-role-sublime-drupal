@@ -1,9 +1,10 @@
 ---
 language: python
-os:
-  - osx
-# Use the new container infrastructure
-sudo: false
+matrix:
+  include:
+    - os: osx
+      sudo: required
+      python: 2.7
 
 install:
 
