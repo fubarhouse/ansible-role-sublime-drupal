@@ -24,6 +24,9 @@ install:
 
 script:
 
+  # Ensure $PWD is the right folder.
+  - cd $TRAVIS_BUILD_DIR
+
   # Check the role/playbook's syntax.
   - "ansible-playbook main.yml --syntax-check"
 
