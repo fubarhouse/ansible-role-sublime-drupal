@@ -18,7 +18,7 @@ Configures Sublime using the [recommended Drupal standard](https://www.drupal.or
 See defaults/main.yml for all entries, the following is an example.
 
 ````
-- STPackages:
+STPackages:
 - name: DrupalSublimeConfig;
   repository: https://github.com/enzolutions/drupal-sublime-config.git
 ````
