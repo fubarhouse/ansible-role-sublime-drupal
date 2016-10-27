@@ -11,9 +11,7 @@ install:
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   # Install sublime
-  - brew install caskroom/cask/brew-cask
-  - brew tap caskroom/versions
-  - brew cask install sublime-text3
+  - brew cask install sublime-text
 
   # Install ansible
   - pip install ansible
