@@ -1,13 +1,22 @@
 ---
 language: python
-python: "2.7"
-os: osx
+os:
+  - osx
 # Use the new container infrastructure
 sudo: false
 
 install:
+
   # Install pip
   - sudo easy_install pip
+
+  # Install homebrew
+  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  # Install sublime
+  - brew install caskroom/cask/brew-cask
+  - brew tap caskroom/versions
+  - brew cask install sublime-text3
 
   # Install ansible
   - pip install ansible
