@@ -1,0 +1,48 @@
+---
+# defaults file for fubarhouse.sublime-drupal
+sublime_packageman_file: https://packagecontrol.io/Package%20Control.sublime-package
+STPackages:
+- name: DrupalSublimeConfig;
+  repository: https://github.com/enzolutions/drupal-sublime-config.git
+- name: BracketHighlighter
+  repository: https://github.com/facelessuser/BracketHighlighter.git
+- name: Highlighter
+  repository: https://github.com/bluegray/Highlighter.git
+- name: ApplySyntax
+  repository: https://github.com/facelessuser/ApplySyntax.git
+- name: PrettyYAML
+  repository: https://github.com/aukaost/SublimePrettyYAML.git
+- name: DocBlockr
+  repository: https://github.com/spadgos/sublime-jsdocs.git
+- name: Sublime-Text-2-Goto-Drupal-API
+  repository: https://github.com/BrianGilbert/Sublime-Text-2-Goto-Drupal-API.git
+- name: DrupalSublimeSnippets
+  repository: https://github.com/juhasz/drupal_sublime-snippets.git
+- name: DrupalCodingStandard
+  repository: https://github.com/rypit/DrupalCodingStandard.git
+- name: sublime-text-2-goto-documentation
+  repository: https://github.com/kemayo/sublime-text-2-goto-documentation
+- name: SyncedSideBar
+  repository: https://github.com/sobstel/SyncedSideBar
+- name: TrailingSpaces
+  repository: https://github.com/SublimeText/TrailingSpaces.git
+- name: st2-drupal-autocomplete
+  repository: https://github.com/tanc/st2-drupal-autocomplete.git
+- name: sublime-find-function-definition
+  repository: https://github.com/timdouglas/sublime-find-function-definition.git
+- name: sublime-text-2-git
+  repository: https://github.com/kemayo/sublime-text-2-git.git
+- name: GitGutter
+  repository: https://github.com/jisaacks/GitGutter.git
+- name: SideBarGit
+  repository: https://github.com/SublimeText/SideBarGit.git
+- name: SublimeLinter
+  repository: https://github.com/SublimeLinter/SublimeLinter.git
+- name: SASS
+  repository: https://github.com/nathos/sass-textmate-bundle.git
+- name: CssSnippets
+  repository: https://github.com/P233/Emmet-Css-Snippets-for-Sublime-Text-2.git
+- name: JSLint
+  repository: https://github.com/darrenderidder/Sublime-JSLint.git
+- name: PHP Syntax Checker
+  repository: https://github.com/naomichi-y/php_syntax_checker.git

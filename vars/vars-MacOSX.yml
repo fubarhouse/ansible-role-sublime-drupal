@@ -1,0 +1,8 @@
+---
+# vars file for fubarhouse.sublime-drupal
+
+STVersion: 3
+STDir: "~/Library/Application Support/Sublime Text {{ STVersion }}"
+STUserDir: "User"
+STPackagesDir: "Packages"
+STPackagemanDir: "Installed Packages"

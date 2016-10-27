@@ -1,0 +1,98 @@
+---
+# tasks file for fubarhouse.sublime-drupal
+
+- include_vars: "vars-{{ ansible_distribution }}.yml"
+
+- name: Sublime | Install Package Control
+  git:
+    repo: "https://github.com/wbond/sublime_package_control.git"
+    dest: "{{ STDir }}/Package Control"
+    clone: yes
+    update: yes
+    force: yes
+    accept_hostkey: yes
+
+- name: Sublime | Install DrupalSublimeConfig
+  git:
+    repo: "https://github.com/enzolutions/drupal-sublime-config.git"
+    dest: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig"
+    clone: yes
+    update: yes
+    force: yes
+    accept_hostkey: yes
+
+- name: Sublime | Install Packages
+  git:
+    repo: "{{ item.repository }}"
+    dest: "{{ STDir }}/{{ STPackagesDir }}/{{ item.name }}"
+    clone: yes
+    update: yes
+    force: yes
+    accept_hostkey: yes
+  with_items: "{{ STPackages }}"
+
+- name: Sublime | Backup user settings
+  copy:
+    src: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig/{{ item }}.sublime-settings"
+    dest: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig/{{ item }}.sublime-settings.bak"
+  with_items:
+    - PHP
+    - Preferences
+    - SublimeLinter
+    - GitGutter
+    - Highlighter
+    - MacTerminal
+
+- name: Sublime | Link user preferences
+  file:
+    src: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig/{{ item }}.sublime-settings"
+    dest: "{{ STDir }}/{{ STPackagesDir }}/{{ STUserDir }}/{{ item }}.sublime-settings"
+    state: link
+    force: yes
+  with_items:
+      - PHP
+      - Preferences
+      - SublimeLinter
+      - GitGutter
+      - Highlighter
+      - MacTerminal
+
+- name: "Include OSX tasks"
+  include: tasks-MacOSX.yml
+  when: "{{ ansible_distribution }} == 'MacOSX'"
+
+- name: Sublime | Install Soda
+  git:
+    repo: "https://github.com/buymeasoda/soda-theme.git"
+    dest: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda"
+    clone: yes
+    update: yes
+    force: yes
+    accept_hostkey: yes
+
+- name: Sublime | Download Soda color schemes
+  get_url:
+    url: "https://buymeasoda.github.com/soda-theme/extras/colour-schemes.zip"
+    dest: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/colour-schemes.zip"
+    force: no
+
+- name: Sublime | Install Soda color schemes
+  unarchive:
+    src: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/colour-schemes.zip"
+    dest: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/"
+
+- name: Sublime | Delete Soda color schemes download
+  file:
+    path: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/colour-schemes.zip"
+    state: absent
+
+- name: Sublime | Look for PHP Code sniffer
+  shell: which phpcs
+  register: which_phpcs
+
+- name: Sublime | Link PHP Code sniffer
+  file:
+    src: "{{ which_phpcs.stdout }}"
+    dest: "{{ STDir }}/{{ STPackagesDir }}/DrupalCodingStandard/phpcs"
+    state: link
+  when: which_phpcs.stdout.find('phpcs') != -1
