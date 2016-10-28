@@ -112,7 +112,7 @@
   when: install_color_schemes == 'yes'
 
 - name: Sublime | Look for PHP Code sniffer
-  shell: which phpcs
+  shell: which phpcs | grep phpcs
   register: which_phpcs
 
 - name: Sublime | Link PHP Code sniffer
