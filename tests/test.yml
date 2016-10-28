@@ -5,5 +5,7 @@
   vars_files:
     - ../defaults/main.yml
     - ../vars/vars-MacOSX.yml
+  vars:
+    install_color_schemes: false
   tasks:
     - include: ../tasks/main.yml
