@@ -2,6 +2,7 @@
 # tasks file for fubarhouse.sublime-drupal
 
 - include_vars: "vars-{{ ansible_distribution }}.yml"
+  when: STDir is undefined
 
 - name: Sublime | Install Package Control
   git:

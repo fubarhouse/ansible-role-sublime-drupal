@@ -3,10 +3,6 @@
   remote_user: root
   connection: local
   vars:
-    STVersion: 3
-    STDir: "~/Library/Application Support/Sublime Text {{ STVersion }}"
-    STUserDir: "User"
-    STPackagesDir: "Packages"
-    STPackagemanDir: "Installed Packages"
+    - ../vars/vars-MacOSX.yml
   tasks:
     - include: ../tasks/main.yml
