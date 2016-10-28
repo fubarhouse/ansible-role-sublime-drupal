@@ -32,6 +32,18 @@
     accept_hostkey: yes
   with_items: "{{ STPackages }}"
 
+- name: Sublime | Ensure user settings files exist
+  file:
+    path: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig/{{ item }}.sublime-settings"
+    state: touch
+  with_items:
+    - PHP
+    - Preferences
+    - SublimeLinter
+    - GitGutter
+    - Highlighter
+    - MacTerminal
+
 - name: Sublime | Backup user settings
   copy:
     src: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig/{{ item }}.sublime-settings"
