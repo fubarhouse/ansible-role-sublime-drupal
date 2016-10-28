@@ -32,18 +32,6 @@
     accept_hostkey: yes
   with_items: "{{ STPackages }}"
 
-- name: Sublime | Ensure user settings files exist
-  file:
-    path: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig/{{ item }}.sublime-settings"
-    state: touch
-  with_items:
-    - PHP
-    - Preferences
-    - SublimeLinter
-    - GitGutter
-    - Highlighter
-    - MacTerminal
-
 - name: Sublime | Backup user settings
   copy:
     src: "{{ STDir }}/{{ STUserDir }}/DrupalSublimeConfig/{{ item }}.sublime-settings"
@@ -55,6 +43,7 @@
     - GitGutter
     - Highlighter
     - MacTerminal
+  changed_when: false
 
 - name: Sublime | Link user preferences
   file:
@@ -63,12 +52,13 @@
     state: link
     force: yes
   with_items:
-      - PHP
-      - Preferences
-      - SublimeLinter
-      - GitGutter
-      - Highlighter
-      - MacTerminal
+    - PHP
+    - Preferences
+    - SublimeLinter
+    - GitGutter
+    - Highlighter
+    - MacTerminal
+  changed_when: false
 
 - name: Sublime | Install Soda
   git:
