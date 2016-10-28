@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
   remote_user: root
-  roles:
-    - fubarhouse.sublime-drupal
+  connection: local
+  vars_files:
+    - ../vars/vars-MacOSX.yml
+  tasks:
+    - include: ../tasks/main.yml

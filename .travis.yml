@@ -24,19 +24,18 @@ install:
 
 script:
 
-  # Ensure $PWD is the right folder.
-  - echo $PWD
-  - ls
+  # cd into tests folder
+  - cd tests
 
   # Check the role/playbook's syntax.
-  - "ansible-playbook main.yml --syntax-check"
+  - "ansible-playbook test.yml --syntax-check"
 
   # Test the playbook.
-  - "ansible-playbook -i tests/inventory main.yml --connection=local --sudo"
+  - "ansible-playbook -i tests/inventory test.yml --connection=local --sudo"
 
   # Test the playbook's idempotence.
   - idempotence=$(mktemp)
-  - "ansible-playbook main.yml | tee -a ${idempotence}"
+  - "ansible-playbook test.yml | tee -a ${idempotence}"
   - >
     tail ${idempotence}
     | grep -q 'changed=0.*failed=0'
