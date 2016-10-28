@@ -2,7 +2,11 @@
 - hosts: localhost
   remote_user: root
   connection: local
-  vars_files:
-    - ../vars/vars-MacOSX.yml
+  vars:
+    STVersion: 3
+    STDir: "~/Library/Application Support/Sublime Text {{ STVersion }}"
+    STUserDir: "User"
+    STPackagesDir: "Packages"
+    STPackagemanDir: "Installed Packages"
   tasks:
     - include: ../tasks/main.yml
