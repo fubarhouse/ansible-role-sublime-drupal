@@ -9,6 +9,10 @@
     path: "{{ STDir }}/Package Control"
   register: packagecontroldir
 
+- name: Sublime | Detecting user directory
+  stat:
+    path: "{{ STDir }}/{{ STPackagesDir }}/{{ STUserDir }}"
+  register: packageuserdir
 
 - name: Sublime | Install Package Control
   git:
@@ -77,6 +81,7 @@
     - GitGutter
     - Highlighter
     - MacTerminal
+  when: packageuserdir.stat.isdir is defined and packageuserdir.stat.isdir
 
 - name: Sublime | Install Soda
   git:
