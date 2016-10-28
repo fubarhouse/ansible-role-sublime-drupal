@@ -1,7 +1,7 @@
 ---
 # defaults file for fubarhouse.sublime-drupal
 sublime_packageman_file: https://packagecontrol.io/Package%20Control.sublime-package
-install_color_schemes: true
+install_color_schemes: yes
 STPackages:
 - name: DrupalSublimeConfig;
   repository: https://github.com/enzolutions/drupal-sublime-config.git
