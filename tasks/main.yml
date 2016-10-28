@@ -4,6 +4,12 @@
 - include_vars: "vars-{{ ansible_distribution }}.yml"
   when: STDir is undefined
 
+- name: Sublime | Detecting installation
+  stat:
+    path: "{{ STDir }}/Package Control"
+  register: packagecontroldir
+
+
 - name: Sublime | Install Package Control
   git:
     repo: "https://github.com/wbond/sublime_package_control.git"
@@ -56,7 +62,7 @@
     - GitGutter
     - Highlighter
     - MacTerminal
-  changed_when: false
+  when: packagecontroldir.stat.isdir is defined and packagecontroldir.stat.isdir
 
 - name: Sublime | Link user preferences
   file:
