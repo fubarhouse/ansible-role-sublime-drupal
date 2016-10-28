@@ -2,7 +2,7 @@
 - hosts: localhost
   remote_user: root
   connection: local
-  vars:
+  vars_files:
     - ../vars/vars-MacOSX.yml
   tasks:
     - include: ../tasks/main.yml
