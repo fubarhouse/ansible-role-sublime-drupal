@@ -97,19 +97,19 @@
     url: "https://buymeasoda.github.com/soda-theme/extras/colour-schemes.zip"
     dest: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/colour-schemes.zip"
     force: no
-  when: install_color_schemes == True
+  when: install_color_schemes
 
 - name: Sublime | Install Soda color schemes
   unarchive:
     src: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/colour-schemes.zip"
     dest: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/"
-  when: install_color_schemes == True
+  when: install_color_schemes
 
 - name: Sublime | Delete Soda color schemes download
   file:
     path: "{{ STDir }}/{{ STPackagesDir }}/Theme - Soda/colour-schemes.zip"
     state: absent
-  when: install_color_schemes == True
+  when: install_color_schemes
 
 - name: Sublime | Look for PHP Code sniffer
   shell: which phpcs | cat
